@@ -1,0 +1,60 @@
+﻿@model DSW1_T1_ZEVALLOS_RIVERA_JORGE.Models.Articulo
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h1>Agregar</h1>
+
+<h4>Articulo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Agregar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CodArt" class="control-label"></label>
+                <input asp-for="CodArt" class="form-control" />
+                <span asp-validation-for="CodArt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomArt" class="control-label"></label>
+                <input asp-for="NomArt" class="form-control" />
+                <span asp-validation-for="NomArt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UniMed" class="control-label"></label>
+                <input asp-for="UniMed" class="form-control" />
+                <span asp-validation-for="UniMed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreArt" class="control-label"></label>
+                <input asp-for="PreArt" class="form-control" />
+                <span asp-validation-for="PreArt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StkArt" class="control-label"></label>
+                <input asp-for="StkArt" class="form-control" />
+                <span asp-validation-for="StkArt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodCat" class="control-label"></label>
+                <select asp-for="CodCat" class="form-control" asp-items="ViewBag.Categorias">
+                    <option value="">-- Seleccione categoría --</option>
+                </select>
+                <span asp-validation-for="CodCat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

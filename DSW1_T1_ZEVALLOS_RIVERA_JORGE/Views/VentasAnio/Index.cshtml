@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DSW1_T1_ZEVALLOS_RIVERA_JORGE.Models.VentasAnio>
+
+@{
+    ViewData["Title"] = "Listado de ventas";
+}
+
+<h1>Listado de ventas</h1>
+
+<p>
+    <form asp-action="Index" asp-controller="VentasAnio">
+        <span>Año de venta</span>
+        @Html.TextBox("anio", "", new { type = "number", min = "0" })
+        <button>Buscar</button>
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumVta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FecVta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomCli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomVen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotVta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumVta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FecVta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomCli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomVen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotVta)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
+
+<div>
+    @for (int i = 0; i < ViewBag.CantidadTotalPaginas; i++)
+    {
+        <a asp-action="Index" asp-route-pagina="@i" asp-route-anio="@ViewBag.Anio"
+           class=@(i == ViewBag.PaginaActual ? "btn btn-success" : "btn btn-primary")>@(i + 1)</a>
+    }
+</div>
