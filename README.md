@@ -1,6 +1,8 @@
 # Desarrollo T1
-
 ## Alumno: Jorge Zevallos Rivera
+
+### Importante:
+Para replicar ejecute los scripts del archivo: [Script de Base de datos](bd_scripts.sql)
 
 ### Pregunta 1:
 * Listado por año: https://localhost:7266/ventasanio
